@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-white">
+<nav class="navbar navbar-expand navbar-dark bg-warning">
   <a class="navbar-brand text-dark" href="#">Napiwko.pl</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,14 +13,23 @@
       <li class="nav-item">
         <a class="nav-link text-dark" href="#">Wydarzenia</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-dark" href="#">Panel</a>
-      </li>
     </ul>
+    <div class="btn btn-outline-warning my-2 my-sm-0 text-dark" *ngIf="loggedIn()">Witaj na stronie <b>{{username}}</b>!</div>
+    <div class="dropdown mr-2" *ngIf="loggedIn()">
+      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Panel
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#"><i class="fa fa-plus"></i>Dodaj wydarzenie</a>
+        <a class="dropdown-item" href="#">Moje wydarzenia</a>
+        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" (click)="logout()"></i>Wyloguj</a>
+      </div>
+    </div>
     <form #loginForm="ngForm" class="form-inline my-2 my-md-0" (ngSubmit) = "login()">
-      <input class="form-control mr-2" type="text" placeholder="Login" [(ngModel)]="model.Username" name="Username" required>
-      <input class="form-control mr-2" type="password" placeholder="Hasło" [(ngModel)]="model.Password" name="Password" required>
-      <button class="btn btn-outline-warning my-2 my-sm-0 text-dark" type="submit">Zaloguj</button>
+      <input class="form-control mr-2" type="text" placeholder="Login" id="usrname" [(ngModel)]="username"  [(ngModel)]="model.Login" *ngIf="!loggedIn()" name="Login" required>
+      <input class="form-control mr-2" type="password" placeholder="Hasło" [(ngModel)]="model.Password" *ngIf="!loggedIn()" name="Password" required>
+      <button class="btn btn-outline-warning my-2 my-sm-0 text-dark" type="submit" *ngIf="!loggedIn()">Zaloguj</button>
     </form>
   </div>
 </nav>

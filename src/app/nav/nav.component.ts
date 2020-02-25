@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { logging } from 'protractor';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,17 +8,23 @@ import { logging } from 'protractor';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+  model: any = {};
+  username: string;
 
-  model: any = { };
+  constructor(private authService: AuthService) {}
 
-  constructor() { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   login() {
-    console.log(this.model);
+    localStorage.setItem('username', this.username);
+    this.authService.login(this.model).subscribe();
   }
-
+  loggedIn() {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
+  logout() {
+    localStorage.removeItem('token');
+    console.log('Zostałeś wylogowany!');
+  }
 }
