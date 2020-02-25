@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-dark bg-white">
+  <a class="navbar-brand text-dark" href="#">Napiwko.pl</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-dark" href="#">Główna<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="#">Wydarzenia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="#">Panel</a>
+      </li>
+    </ul>
+    <form #loginForm="ngForm" class="form-inline my-2 my-md-0" (ngSubmit) = "login()">
+      <input class="form-control mr-2" type="text" placeholder="Login" [(ngModel)]="model.Username" name="Username" required>
+      <input class="form-control mr-2" type="password" placeholder="Hasło" [(ngModel)]="model.Password" name="Password" required>
+      <button class="btn btn-outline-warning my-2 my-sm-0 text-dark" type="submit">Zaloguj</button>
+    </form>
+  </div>
+</nav>
