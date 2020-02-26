@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
    declarations: [
@@ -21,8 +20,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      FormsModule,
-      NgbModule
+      FormsModule
    ],
    providers: [
       AuthService
