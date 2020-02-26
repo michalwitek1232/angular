@@ -14,7 +14,7 @@
         <a class="nav-link text-dark" href="#">Wydarzenia</a>
       </li>
     </ul>
-    <div class="btn btn-outline-warning my-2 my-sm-0 text-dark" *ngIf="loggedIn()">Witaj na stronie <b>{{username}}</b>!</div>
+    <div class="btn btn-outline-warning my-2 my-sm-0 text-dark" *ngIf="loggedIn()">Witaj na stronie <b>{{authService.decodedToken?.unique_name | titlecase}}</b>!</div>
     <div class="dropdown mr-2" *ngIf="loggedIn()">
       <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Panel

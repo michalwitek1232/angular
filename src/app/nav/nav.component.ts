@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { logging } from 'protractor';
 import { AuthService } from '../_services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 declare let alertify: any;
 
 @Component({
@@ -14,12 +15,11 @@ export class NavComponent implements OnInit {
 
   @Output() enet = new EventEmitter();
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit() {}
 
   login() {
-    localStorage.setItem('username', this.username);
     this.authService.login(this.model).subscribe(next => {
       alertify.success('Zalogowałeś sie do aplikacji');
     }, error => {
@@ -28,7 +28,7 @@ export class NavComponent implements OnInit {
   }
   loggedIn() {
     const token = localStorage.getItem('token');
-    return !!token;
+    return this.authService.loggedIn();
   }
   logout() {
     localStorage.removeItem('token');
