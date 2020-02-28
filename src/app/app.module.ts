@@ -31,11 +31,11 @@ export function tokenGetter()
       UserListComponent,
       LikesComponent,
       MessagesComponent,
-      PubEventsComponent
+      PubEventsComponent,
    ],
    imports: [
       BrowserModule,
-      //RouterModule.forRoot(appRoutes),
+      // RouterModule.forRoot(appRoutes),
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
