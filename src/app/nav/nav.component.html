@@ -1,36 +1,107 @@
-<nav class="navbar navbar-expand navbar-dark bg-warning">
-  <a class="navbar-brand text-dark" >Napiwko.pl</a>
+<nav class="navbar navbar-expand navbar-dark bg-warning mb-4">
+  <a class="navbar-brand text-dark">Napiwko.pl</a>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExample02"
+    aria-controls="navbarsExample02"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExample02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link text-dark" [routerLink]="['/home']" routerLinkActive="router-link-active" >Główna<span class="sr-only">(current)</span></a>
+        <a
+          class="nav-link text-dark"
+          [routerLink]="['/home']"
+          routerLinkActive="router-link-active"
+          >Główna<span class="sr-only">(current)</span></a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" [routerLink]="['/pub_events']" routerLinkActive="router-link-active" >Wydarzenia publiczne</a>
+        <a
+          class="nav-link text-dark"
+          [routerLink]="['/pub_events']"
+          routerLinkActive="router-link-active"
+          >Wydarzenia publiczne</a
+        >
       </li>
     </ul>
-    <div class="btn btn-outline-warning my-2 my-sm-0 text-dark" *ngIf="loggedIn()">Witaj na stronie <b>{{authService.decodedToken?.unique_name | titlecase}}</b>!</div>
-    <div class="dropdown mr-2" *ngIf="loggedIn()">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Panel
-      </a>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" routerLinkActive="active">
-        <a class="dropdown-item" [routerLink]="['/messages']" routerLinkActive="router-link-active" ><i class="fa fa-plus"></i>Wiadomości</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-plus"></i>Dodaj wydarzenie</a>
-        <a class="dropdown-item" href="#">Moje wydarzenia</a>
-        <a class="dropdown-item" href="#"><i class="fa fa-sign-out" (click)="logout()"></i>Wyloguj</a>
-      </div>
+    <div class="dropdown mr-2 btn-group" *ngIf="loggedIn()" dropdown>
+      <button
+        id="button-basic"
+        dropdownToggle
+        type="button"
+        class="btn btn-secondary dropdown-toggle"
+        aria-controls="dropdown-basic"
+      >
+        Panel <span class="btn-warning"></span>
+      </button>
+      <ul
+        id="dropdown-basic"
+        *dropdownMenu
+        class="dropdown-menu"
+        role="menu"
+        aria-labelledby="button-basic"
+      >
+        <li role="menuitem"><a class="dropdown-item" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profil</a></li>
+        <li role="menuitem">
+          <a class="dropdown-item" href="#">Dodaj wydarzenie</a>
+        </li>
+        <li role="menuitem">
+          <a class="dropdown-item" href="#">Moje wydarzenia</a>
+        </li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem">
+          <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+        </li>
+      </ul>
     </div>
-    <form #loginForm="ngForm" class="form-inline my-2 my-md-0" (ngSubmit) = "login()">
-      <input class="form-control mr-2" type="text" placeholder="Login" id="usrname" [(ngModel)]="username"  [(ngModel)]="model.Login" *ngIf="!loggedIn()" name="Login" required>
-      <input class="form-control mr-2" type="password" placeholder="Hasło" [(ngModel)]="model.Password" *ngIf="!loggedIn()" name="Password" required>
-      <button class="btn btn-outline-warning my-2 my-sm-0 text-dark" type="submit" *ngIf="!loggedIn()">Zaloguj</button>
+    <div
+      class="btn btn-outline-warning my-2 my-sm-0 text-dark"
+      *ngIf="loggedIn()"
+    >
+      Witaj na stronie
+      <b>{{ authService.decodedToken?.unique_name | titlecase }} </b
+      >!
+    </div>
+    <form
+      #loginForm="ngForm"
+      class="form-inline my-2 my-md-0"
+      (ngSubmit)="login()"
+    >
+      <input
+        class="form-control mr-2"
+        type="text"
+        placeholder="Login"
+        id="usrname"
+        [(ngModel)]="username"
+        [(ngModel)]="model.Login"
+        *ngIf="!loggedIn()"
+        name="Login"
+        required
+      />
+      <input
+        class="form-control mr-2"
+        type="password"
+        placeholder="Hasło"
+        [(ngModel)]="model.Password"
+        *ngIf="!loggedIn()"
+        name="Password"
+        required
+      />
+      <button
+        class="btn btn-outline-warning my-2 my-sm-0 text-dark"
+        type="submit"
+        *ngIf="!loggedIn()"
+      >
+        Zaloguj
+      </button>
     </form>
   </div>
 </nav>

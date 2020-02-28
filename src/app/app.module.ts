@@ -16,9 +16,12 @@ import { MessagesComponent } from './messages/messages.component';
 import { PubEventsComponent } from './pubEvents/pubEvents.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { UserprofileComponent} from './userprofile/userprofile.component'
 
-export function tokenGetter()
-{
+export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
@@ -32,6 +35,7 @@ export function tokenGetter()
       LikesComponent,
       MessagesComponent,
       PubEventsComponent,
+      UserprofileComponent
    ],
    imports: [
       BrowserModule,
@@ -39,9 +43,12 @@ export function tokenGetter()
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
+      BrowserAnimationsModule,
+      BsDropdownModule.forRoot(),
+      ButtonsModule.forRoot(),
       JwtModule.forRoot({
         config: {
-          tokenGetter: tokenGetter,
+          tokenGetter,
           whitelistedDomains: ['localhost:5000'],
           blacklistedRoutes: ['localhost:5000/api/auth']
         }
