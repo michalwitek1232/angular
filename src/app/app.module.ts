@@ -35,7 +35,7 @@ export function tokenGetter()
    ],
    imports: [
       BrowserModule,
-      // RouterModule.forRoot(appRoutes),
+      RouterModule.forRoot(appRoutes),
       AppRoutingModule,
       HttpClientModule,
       FormsModule,

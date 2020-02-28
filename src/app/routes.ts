@@ -9,5 +9,5 @@ export const appRoutes: Routes = [
   { path: 'pub_events', component: PubEventsComponent},
   { path: 'polubienia', component: LikesComponent},
   { path: 'messages', component: MessagesComponent},
-  { path: '**', redirectTo: 'home', pathMatch: null},
+  { path: '**', redirectTo: 'home'},
 ];
