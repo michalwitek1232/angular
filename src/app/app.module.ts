@@ -19,7 +19,8 @@ import { appRoutes } from './routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { UserprofileComponent} from './userprofile/userprofile.component'
+import { UserprofileComponent} from './userprofile/userprofile.component';
+import { EventcreatorComponent } from './eventcreator/eventcreator.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -35,7 +36,8 @@ export function tokenGetter() {
       LikesComponent,
       MessagesComponent,
       PubEventsComponent,
-      UserprofileComponent
+      UserprofileComponent,
+      EventcreatorComponent
    ],
    imports: [
       BrowserModule,

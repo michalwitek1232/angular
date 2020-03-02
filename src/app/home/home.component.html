@@ -1,24 +1,50 @@
 <div class="container">
-  <div *ngIf="!registermode" class="mt-3" style="text-align: center;">
-    <h1>Zorganizuj wydarzenia grupowe</h1>
-    <p class="lit">
-      Wejdź aby dowiedzieć się więcej... <i *ngIf="!loggedIn()">Wszystko co musisz zrobić to
-      zarejestrować się!</i>
-<!---------<app-user-list> </app-user-list>---->
-    </p>
-    <div class="text-center">
-      <button *ngIf="!loggedIn()" (click)="regtoggle()" class="btn btn-primary btn-lg mr-2 btn-warning">
-        Rejestracja
-      </button>
-      <button class="btn btn-primary btn-lg btn-secondary">Więcej...</button>
-    </div>
-  </div>
-
-  <div *ngIf="registermode" class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-register [valuesFromHome] = values (cancelReg)="cancelRegisterMode($event)"></app-register>
+  <div class="row h-100 text-white">
+    <div class="col-sm-1 h-100 d-flex">
+      <div *ngIf="!registermode" class="mt-3" style="text-align: center;">
+        <h1 class="animated bounceIn display-2">
+          Zorganizuj wydarzenia grupowe
+        </h1>
+        <div *ngIf="loggedIn()" class="lit animated bounceIn mt-3 display-4">
+          Wejdź aby dowiedzieć się więcej...<br />
+        </div>
+        <div>
+          <h3 *ngIf="!loggedIn()" class="mt-4">
+            Wszystko co musisz zrobić to zarejestrować się!
+          </h3>
+          <!---------<app-user-list> </app-user-list>---->
+        </div>
+        <div class="text-center">
+          <div class="container">
+            <button
+              *ngIf="!loggedIn()"
+              (click)="regtoggle()"
+              class="btn btn-primary animated flash btn-lg mr-2 mt-3 btn-warning"
+            >
+              Rejestracja
+            </button>
+            <button
+              class="btn mt-3 btn-primary btn-lg btn-secondary animated bounceIn"
+            >
+              Więcej...
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="container"></div>
+      <div class="row h-100 text-white">
+      <div *ngIf="registermode" class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <app-register
+              [valuesFromHome]="values"
+              (cancelReg)="cancelRegisterMode($event)"
+            ></app-register>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

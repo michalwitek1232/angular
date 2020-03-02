@@ -1,14 +1,14 @@
 <form #registerForm="ngForm" (ngSubmit)="register()">
-  <h2 class="text-center text-primary mt-3 text-dark">Zarejestruj się</h2>
+  <h2 class="text-center display-2 mt-3 text-white animated bounceIn">Rejestracja</h2>
   <hr>
   <div class="form-group">
-    <input name="username" type="text" class="form-control" placeholder="Login" [(ngModel)]="model.username" required>
+    <input name="username" type="text" class="form-control animated bounceIn" placeholder="Login" [(ngModel)]="model.username" required>
   </div>
   <div class="form-group">
-    <input name="password" type="password" class="form-control" placeholder="Hasło" [(ngModel)]="model.password" required>
+    <input name="password" type="password" class="form-control animated bounceIn" placeholder="Hasło" [(ngModel)]="model.password" required>
   </div>
   <div class="form-group text-center">
-    <button class="btn btn-warning mr-2" type="submit" (click)="register()">Rejestracja</button>
-    <button class="btn btn-secondary" type="button" (click)="registerAbort()">Anuluj</button>
+    <button class="btn btn-warning mr-2 animated heartBeat" type="submit" (click)="register()">Rejestracja</button>
+    <button class="btn btn-secondary ml-2 animated bounceIn" type="button" (click)="registerAbort()">Anuluj</button>
   </div>
 </form>

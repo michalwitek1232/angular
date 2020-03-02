@@ -1,5 +1,12 @@
-<div>
-  <p *ngFor="let a of users">
-    {{a.username}} - {{a.age}}
-</p>
+<div class="mt-3"></div>
+<div class="list-group p-3 ml-4 mr-4" *ngFor="let a of events">
+  <a href="#" class="animated bounceIn border border-warning list-group-item bg-warning list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h1 class="mb-1 text-dark">{{a.nazwa}}</h1>
+      <small class="text-dark bg-warning">Utworzono: {{a.created}}</small>
+    </div>
+    <p class="mb-1 text-dark">{{a.opis}}</p>
+    <small class="text-black-50">#{{a.id}}</small>
+  </a>
 </div>
+<div id="bck"></div>

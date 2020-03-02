@@ -1,0 +1,24 @@
+<div class="content p-3 ml-4 mr-4 bg-white">
+<h1 class="display-2 text-dark text-center">Kreator wydarzeń</h1>
+</div>
+<div class="content">
+<div class="content ml-4 mr-4 p-3 bg-warning">
+  <h1 class="ml-2 mt-4 mb-4 text-center">Nazwa wydarzenia:</h1>
+  <input class="form-control mt-3 mb-3 p-lg-4 " [(ngModel)]="model.Nazwa" required>
+  <div class="text-break"></div>
+  <h1 class="ml-2 mt-4 mb-4 text-center">Opis wydarzenia:</h1>
+  <textarea class="form-control mt-3 mb-3 p-lg-4" required [(ngModel)]="model.Opis"></textarea>
+  <div class="text-break"></div>
+  <h1 class="ml-2 mt-4 mb-4 text-center">Data wydarzenia:</h1>
+  <input type="text" class="form-control" required [(ngModel)]="model.Ends">
+  <div class="text-break"></div>
+  <h1 class="ml-2 mt-4 mb-4 text-center">Organizator:</h1>
+  <input class="form-control mt-3 mb-3 p-lg-4 " required [(ngModel)]="model.Ownerusername">
+  <div class="text-center">
+    <button type="button" class="btn mr-2 btn-success" (click)="evnCreate()">Dodaj wydarzenie</button>
+    <button type="button" class="btn ml-2 btn-secondary" (click)="evnAbort()" >Anuluj</button>
+  </div>
+</div>
+
+</div>
+
