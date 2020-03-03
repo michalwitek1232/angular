@@ -33,7 +33,7 @@
       </li>
     </ul>
     <div class="dropdown mr-2 btn-group" *ngIf="loggedIn()" dropdown>
-      <button
+      <button *ngIf="loggedIn()"
         id="button-basic"
         dropdownToggle
         type="button"
@@ -48,13 +48,14 @@
         class="dropdown-menu"
         role="menu"
         aria-labelledby="button-basic"
+
       >
         <li role="menuitem"><a class="dropdown-item" [routerLink]="['/profile']" routerLinkActive="router-link-active" >Profil</a></li>
         <li role="menuitem">
           <a class="dropdown-item" [routerLink]="['/evn_creator']">Dodaj wydarzenie</a>
         </li>
         <li role="menuitem">
-          <a class="dropdown-item" href="#">Moje wydarzenia</a>
+          <a class="dropdown-item" [routerLink]="['/moje-wyd']">Moje wydarzenia</a>
         </li>
         <li class="divider dropdown-divider"></li>
         <li role="menuitem">

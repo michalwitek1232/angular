@@ -21,6 +21,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { UserprofileComponent} from './userprofile/userprofile.component';
 import { EventcreatorComponent } from './eventcreator/eventcreator.component';
+import { AuthGuard } from './guards/auth.guard';
+import { MojeWydComponent } from './moje-wyd/moje-wyd.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -37,7 +39,8 @@ export function tokenGetter() {
       MessagesComponent,
       PubEventsComponent,
       UserprofileComponent,
-      EventcreatorComponent
+      EventcreatorComponent,
+      MojeWydComponent
    ],
    imports: [
       BrowserModule,
@@ -57,7 +60,8 @@ export function tokenGetter() {
       })
    ],
    providers: [
-      AuthService
+      AuthService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

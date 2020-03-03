@@ -10,12 +10,16 @@ declare let alertify: any ;
   // declare let alertify;
 
 export class EventcreatorComponent implements OnInit {
-  model: any = [];
+  model: any = {};
+  username: string;
   constructor(private evntservice: EventService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.username = localStorage.getItem('username');
+  }
 
   evnCreate() {
+    this.model.Ownerusername = this.username; // ustawienie ownera
     this.evntservice.eventCreate(this.model).subscribe(
       () => {
         alertify.success('Utworzono wydarzenie');
@@ -23,6 +27,7 @@ export class EventcreatorComponent implements OnInit {
       error => alertify.error('Wystąpił błąd')
     );
     console.log(this.model);
+    window.location.replace('./moje-wyd');
   }
 
   evnAbort() {

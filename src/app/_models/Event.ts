@@ -1,8 +1,8 @@
 export interface Event {
   id: number;
-  nazwa: string;
-  opis: string;
+  title: string;
+  description: string;
   created: Date;
   ends: Date;
-  owner: any;
+  ownerusername: string;
 }

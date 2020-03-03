@@ -37,4 +37,11 @@ export class UserListComponent implements OnInit {
     });
   }
 
+  GetOwner(string1: string)
+  {
+    
+    alertify.message("Zostało: ");
+    console.log(string1);
+  }
+
 }

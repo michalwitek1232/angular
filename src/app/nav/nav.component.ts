@@ -14,10 +14,12 @@ export class NavComponent implements OnInit {
   username: string;
 
   @Output() enet = new EventEmitter();
+  @Output() enet2 = new EventEmitter();
+
 
   constructor(public authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() { this.userSave(); }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
@@ -37,5 +39,20 @@ export class NavComponent implements OnInit {
 
   enetLogged() {
     this.enet.emit(false);
+  }
+
+  titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+  }
+
+  userSave()
+  {
+    let name: string = this.authService.decodedToken?.unique_name;
+    name = this.titleCase(name);
+    localStorage.setItem('username', name)
   }
 }
