@@ -25,7 +25,7 @@ getEvents(): Observable<Event[]> {
   return this.http.get<Event[]>(this.baserUrl + 'Events');
 }
 getCustomEvents(name: string): Observable<Event[]> {
-  return this.http.get<Event[]>(this.baserUrl + 'Events/userEvent/'+ name);
+  return this.http.get<Event[]>(this.baserUrl + 'Events/userEvent/' + name);
 }
 getEvent(id: number): Observable<Event> {
   return this.http.get<Event>(this.baserUrl + 'Events/' + id, );

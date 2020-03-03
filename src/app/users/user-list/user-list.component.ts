@@ -37,11 +37,17 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  GetOwner(string1: string)
-  {
-    
-    alertify.message("Zostało: ");
-    console.log(string1);
+  GetOwner(date1: any, date2: any) {
+    let out = this.calc(date1, date2);
+    alertify.message('Zostało:  ' + out.toString() +' dni');
+    console.log();
   }
+
+  calc(date1: any, date2: any) {
+    const diff = Math.abs(date1 - date2);
+    const diffDays = Math.ceil(diff / (1000 * 3600 * 24));
+    return diffDays;
+  }
+
 
 }
