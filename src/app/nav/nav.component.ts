@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { logging } from 'protractor';
 import { AuthService } from '../_services/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { interval } from 'rxjs';
+import { TestBed } from '@angular/core/testing';
 declare let alertify: any;
 
 @Component({
@@ -24,6 +26,7 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       alertify.success('Zalogowałeś sie do aplikacji');
+      setInterval(() => {this.fixerauth(); } , 400);
     }, error => {
       alertify.error('Wystąpił błąd logowania!');
     });
@@ -43,16 +46,20 @@ export class NavComponent implements OnInit {
 
   titleCase(str) {
     str = str.toLowerCase().split(' ');
-    for (var i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i++) {
       str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
     }
     return str.join(' ');
   }
 
-  userSave()
-  {
+  userSave() {
     let name: string = this.authService.decodedToken?.unique_name;
     name = this.titleCase(name);
-    localStorage.setItem('username', name)
+    localStorage.setItem('username', name);
+  }
+
+  fixerauth() {
+    this.userSave();
+    location.reload();
   }
 }

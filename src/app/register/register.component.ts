@@ -29,4 +29,24 @@ export class RegisterComponent implements OnInit {
   registerAbort() {
     this.cancelReg.emit(false);
   }
+
+  titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (let i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+  }
+
+  userSave() {
+    let name: string = this.authserv.decodedToken?.unique_name;
+    name = this.titleCase(name);
+    localStorage.setItem('username', name);
+  }
+
+btnDeb()
+  {
+  console.log('Alive!');
+  }
+
 }
